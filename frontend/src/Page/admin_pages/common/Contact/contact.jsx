@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import TableComponent from "../../../../components/commonComponent/CrudComponent/TableComponent";
+import TableComponent from "../../../../Components/commonComponent/CrudComponent/TableComponent";
 import { toast } from "react-toastify";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

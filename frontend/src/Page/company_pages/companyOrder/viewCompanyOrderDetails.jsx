@@ -3,7 +3,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
-import DynamicForm from "../../../components/commonComponent/CrudComponent/DynamicFormComponent";
 import BASE_URL from "../../../../config";
 
 const ViewCompanyOrderDetails = () => {

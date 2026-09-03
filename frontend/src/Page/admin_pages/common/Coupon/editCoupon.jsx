@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import DynamicForm from "../../../../components/commonComponent/CrudComponent/DynamicFormComponent";
+import DynamicForm from "../../../../Components/commonComponent/CrudComponent/DynamicFormComponent";
 import BASE_URL from "../../../../../config";
 
 const EditCoupon = () => {

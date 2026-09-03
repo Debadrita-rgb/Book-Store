@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import TableComponent from "../../../../components/commonComponent/CrudComponent/TableComponent";
+import TableComponent from "../../../../Components/commonComponent/CrudComponent/TableComponent";
 import { toast, ToastContainer } from "react-toastify";
 import BASE_URL from "../../../../../config";
 

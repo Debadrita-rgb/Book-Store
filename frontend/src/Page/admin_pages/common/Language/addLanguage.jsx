@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import DynamicForm from "../../../../components/commonComponent/CrudComponent/DynamicFormComponent";
+import DynamicForm from "../../../../Components/commonComponent/CrudComponent/DynamicFormComponent";
 import BASE_URL from "../../../../../config";
 
 const AddLanguage = () => {

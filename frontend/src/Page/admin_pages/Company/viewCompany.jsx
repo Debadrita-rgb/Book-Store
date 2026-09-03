@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import TableComponent from "../../../components/commonComponent/CrudComponent/TableComponent";
+import TableComponent from "../../../Components/commonComponent/CrudComponent/TableComponent";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import BASE_URL from "../../../../config";
