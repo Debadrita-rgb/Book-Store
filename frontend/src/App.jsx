@@ -102,7 +102,7 @@ import CompletedDeliveries from "./Page/transporter_pages/Delivery/completedDeli
 
 //Company configuration
 import CompanyLayout from "./Components/companyComponent/companyLayout/companyLayout";
-import CompanyDashboard from "./Page/company_pages/CompanyDashboard/CompanyDashboard";
+import CompanyDashboard from "./Page/company_pages/companyDashboard/companyDashboard.jsx";
 
 //Company Profile
 import CompanyProfile from "./Page/company_pages/companyProfile/companyProfile.jsx"
