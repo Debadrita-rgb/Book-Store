@@ -1,5 +1,8 @@
 const express = require('express');
 const dotenv = require('dotenv');
+
+dotenv.config();
+
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require("path");
@@ -23,7 +26,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://book-store-frontend-2pz4.onrender.com/",
+      "https://book-store-frontend-2pz4.onrender.com",
     ],
     credentials: true,
   }),
@@ -51,6 +54,6 @@ app.use("/company", companyRoutes);
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(5000, ()=> {
-  console.log('Server is running at 5000')
-})
+app.listen(PORT, () => {
+  console.log(`Server is running at ${PORT}`);
+});

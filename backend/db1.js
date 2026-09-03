@@ -3,12 +3,15 @@ require("dotenv").config();
 
 const mongoURL =
   process.env.NODE_ENV === "production"
-    ? process.env.MONGODB_URL_PROD
+    ? process.env.MONGODB_URL_PROD 
     : process.env.MONGODB_URL_LOCAL;
 
 console.log("Mongo URL:", mongoURL);
 
-mongoose.connect(mongoURL);
+mongoose.connect(mongoURL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 const db = mongoose.connection;
 
