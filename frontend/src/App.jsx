@@ -114,8 +114,8 @@ import CompanyAddTransporter from "./Page/company_pages/CompanyTransporter/addCo
 import CompanyEditTransporter from "./Page/company_pages/CompanyTransporter/editCompanyTransporter.jsx";
 
 //order from company
-import CompanyOrder from "./Page/company_pages/CompanyOrder/viewCompanyOrder.jsx";
-import CompanyViewOrderDetails from "./Page/company_pages/CompanyOrder/viewCompanyOrderDetails.jsx";
+import CompanyOrder from "./Page/company_pages/companyOrder/viewCompanyOrder.jsx";
+import CompanyViewOrderDetails from "./Page/company_pages/companyOrder/viewCompanyOrderDetails.jsx";
 
 
 //login page
