@@ -4,7 +4,7 @@ import './index.css'
 import './theme.css'
 import App from './App.jsx'
 import { AuthProvider } from "./context/AuthContext.jsx";
-import { CartProvider } from "./Context/CartContext";
+import { CartProvider } from "./context/CartContext.jsx";
 
 
 createRoot(document.getElementById('root')).render(
