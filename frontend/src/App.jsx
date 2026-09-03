@@ -8,7 +8,7 @@ import "./App.css";
 import "./theme.css";
 
 //Backend configuration
-import AdminLayout from "./Components/admin/AdminLayout/AdminLayout";
+import AdminLayout from "./Components/admin/adminLayout/adminLayout.jsx";
 import AdminDashboard from "./Page/admin_pages/AdminDashboard/AdminDashboard";
 import ShowBook from "./Components/admin/Book/showBook";
 import Addbook from "./Components/admin/Book/AddBook";
