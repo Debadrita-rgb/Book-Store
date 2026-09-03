@@ -1,0 +1,29 @@
+@keyframes ring {
+    0% { transform: rotate(0deg); }
+    1% { transform: rotate(15deg); }
+    3% { transform: rotate(-10deg); }
+    5% { transform: rotate(15deg); }
+    7% { transform: rotate(-10deg); }
+    9% { transform: rotate(0deg); }
+    100% { transform: rotate(0deg); }
+  }
+  
+  .ring-horizontal {
+    animation: ring 1s ease-in-out infinite;
+    transform-origin: 50% 50%;
+  }
+
+  @keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s ease-in-out;
+}

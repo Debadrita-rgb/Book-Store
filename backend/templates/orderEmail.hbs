@@ -1,0 +1,305 @@
+<html>
+
+  <head>
+    <meta charset="UTF-8" />
+    <title>Order Confirmation</title>
+  </head>
+
+  <body
+    style="margin:0;padding:0;background:#f5f5f5;font-family:Arial,Helvetica,sans-serif;"
+  >
+
+    <div
+      style="max-width:650px;margin:20px auto;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1);"
+    >
+
+      <!-- Header -->
+      <div style="padding:20px;">
+
+        <div
+          style="display:flex;justify-content:space-between;align-items:center;"
+        >
+
+          <img src="" width="90" alt="Book Store" />
+
+          <span style="font-size:13px;">
+            ORDER ID :
+            <b>{{orderNumber}}</b>
+          </span>
+
+        </div>
+
+        <h2 style="margin-top:20px;color:#2c3e50;">
+          📚 Order Confirmed
+        </h2>
+
+        <p style="color:#555;">
+          Hello
+          <b>{{name}}</b>,
+        </p>
+
+        <p style="color:#555;line-height:24px;">
+          Thank you for shopping with us. Your order has been confirmed and is
+          now being prepared for shipment.
+        </p>
+
+      </div>
+
+      <!-- Order Summary -->
+
+      <div style="padding:20px;border-top:1px solid #eee;">
+
+        <h2 style="margin-top:0;">Order Summary</h2>
+
+        <p>
+          <b>Tracking Number :</b>
+          {{trackingNumber}}
+        </p>
+
+        <p>
+          <b>Estimated Delivery :</b>
+          {{estimatedDelivery}}
+        </p>
+
+        <p>
+          <b>Payment Method :</b>
+          {{paymentMethod}}
+        </p>
+
+        {{#if itemsHTML}}
+          {{{itemsHTML}}}
+        {{/if}}
+
+      </div>
+
+      <!-- Price -->
+
+      <div style="padding:20px;border-top:1px solid #eee;">
+
+        <p>
+          Subtotal
+          <span style="float:right;">
+            ₹{{subtotal}}
+          </span>
+        </p>
+
+        <p>
+          CGST
+          <span style="float:right;">
+            ₹{{cgst}}
+          </span>
+        </p>
+
+        <p>
+          SGST
+          <span style="float:right;">
+            ₹{{sgst}}
+          </span>
+        </p>
+
+        {{#if coupon.discount}}
+
+          <p>
+            Discount
+            <span style="float:right;color:green;">
+              - ₹{{coupon.discount}}
+            </span>
+          </p>
+
+        {{/if}}
+
+        <hr />
+
+        <h3>
+          Total Paid
+
+          <span style="float:right;">
+            ₹{{payableAmount}}
+          </span>
+
+        </h3>
+
+      </div>
+
+      <!-- Track Button -->
+
+      <div style="padding:25px;text-align:center;">
+
+        <a
+          href="http://localhost:5173/track-package/{{orderId}}"
+          style="
+        background:#e74c3c;
+        color:#fff;
+        padding:12px 28px;
+        text-decoration:none;
+        border-radius:5px;
+        display:inline-block;
+        font-weight:bold;"
+        >
+
+          Track Your Order
+
+        </a>
+
+      </div>
+
+      <!-- Shipping -->
+
+      <div
+        style="
+      margin:20px;
+      padding:18px;
+      background:#fff8e1;
+      border-left:4px solid #f1c40f;
+      border-radius:5px;"
+      >
+
+        <strong>
+          🚚 Shipping Information
+        </strong>
+
+        <ul
+          style="
+        color:#555;
+        line-height:28px;
+        padding-left:18px;"
+        >
+
+          <li>Your order will be packed within 48 hours.</li>
+
+          <li>You will receive shipping updates by email.</li>
+
+          <li>Please keep your invoice for future reference.</li>
+
+          <li>Estimated delivery: {{estimatedDelivery}}</li>
+
+        </ul>
+
+      </div>
+
+      <!-- Address -->
+
+      <div
+        style="
+      margin:20px;
+      padding:18px;
+      background:#fafafa;
+      border-radius:6px;"
+      >
+
+        <h3 style="margin-top:0;">
+          Delivery Address
+        </h3>
+
+        <p style="line-height:24px;">
+
+          {{address.fullName}}
+          <br />
+
+          {{address.addressLine1}}<br />
+
+          {{#if address.addressLine2}}
+            {{address.addressLine2}}
+            <br />
+          {{/if}}
+          {{address.city}},
+          {{address.state}},
+          {{address.country}}
+          -
+          {{address.postalCode}}<br />
+
+          {{#if address.landmark}}
+            Landmark :
+            {{address.landmark}}
+            <br />
+          {{/if}}
+
+          Phone :
+          {{address.mobileNumber}}
+
+          {{#if address.alternateMobileNumber}}
+            Alternate Mobile Number :
+            {{address.alternateMobileNumber}}
+            <br />
+          {{/if}}
+          {{#if address.addressType}}
+            Address Type :
+            {{address.addressType}}
+            <br />
+          {{/if}}
+        </p>
+
+      </div>
+
+      <!-- Help -->
+
+      <div style="padding:20px;">
+
+        <h4>
+          What's Next?
+        </h4>
+
+        <ol
+          style="
+        color:#555;
+        line-height:28px;"
+        >
+
+          <li>Log in to your account.</li>
+
+          <li>Go to <a href="http://localhost:5173/orders/{{orderId}}"><b>My Orders</b> </a>.</li>
+
+          <li>Track your shipment anytime.</li>
+
+          <li>Download your invoice whenever required.</li>
+
+          <li>Contact support if you need any assistance.</li>
+
+        </ol>
+
+      </div>
+
+      <!-- Footer -->
+
+      <div
+        style="
+      text-align:center;
+      padding:20px;
+      border-top:1px solid #eee;"
+      >
+
+        <a
+          href="https://localhost:5173/contact"
+          style="
+        color:#e74c3c;
+        border:1px solid #e74c3c;
+        padding:10px 20px;
+        border-radius:5px;
+        text-decoration:none;
+        display:inline-block;"
+        >
+
+          Need Help? Contact Support
+
+        </a>
+
+        <p
+          style="
+        margin-top:20px;
+        color:#777;
+        font-size:13px;"
+        >
+
+          Thank you for choosing
+          <b>Book Store</b>
+          ❤️
+
+        </p>
+
+      </div>
+
+    </div>
+
+  </body>
+
+</html>

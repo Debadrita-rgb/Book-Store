@@ -1,0 +1,26 @@
+/* Basic styles for TipTap content */
+.ProseMirror {
+    min-height: 200px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    /* You can style the underline */
+  }
+  
+  .ProseMirror a {
+    color: blue;
+    text-decoration: underline;
+  }
+  
+  .ProseMirror u {
+    text-decoration: underline;
+  }
+  
+  .ProseMirror img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px 0;
+  }
+  

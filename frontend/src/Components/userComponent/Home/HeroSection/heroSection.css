@@ -1,0 +1,112 @@
+/* Light Theme */
+.hero-section {
+  background: linear-gradient(to bottom right, #fff7ed, #ffffff, #fef2f2);
+  transition: all 0.3s ease;
+}
+
+.hero-badge {
+  background: #ffedd5;
+  color: #ea580c;
+}
+
+.hero-title {
+  color: #111827;
+}
+
+.hero-text {
+  color: #4b5563;
+}
+
+.hero-search {
+  background: white;
+  border-color: #e5e7eb;
+}
+
+.hero-input {
+  color: #374151;
+}
+
+.hero-input::placeholder {
+  color: #9ca3af;
+}
+
+.hero-icon {
+  color: #9ca3af;
+}
+
+.hero-dropdown {
+  background: white;
+  border-color: #e5e7eb;
+}
+
+.hero-dropdown-item:hover {
+  background: #f3f4f6;
+}
+
+.hero-secondary-btn {
+  border-color: #d1d5db;
+  color: #374151;
+}
+
+.hero-secondary-btn:hover {
+  border-color: #f97316;
+  color: #f97316;
+}
+
+/* Dark Theme */
+.theme-dark .hero-section {
+  background: linear-gradient(to bottom right, #111827, #0f172a, #1e293b);
+}
+
+.theme-dark .hero-badge {
+  background: rgba(249, 115, 22, 0.15);
+  color: #fb923c;
+}
+
+.theme-dark .hero-title {
+  color: white;
+}
+
+.theme-dark .hero-text {
+  color: #cbd5e1;
+}
+
+.theme-dark .hero-search {
+  background: #1f2937;
+  border-color: #374151;
+}
+
+.theme-dark .hero-input {
+  color: white;
+}
+
+.theme-dark .hero-input::placeholder {
+  color: #94a3b8;
+}
+
+.theme-dark .hero-icon {
+  color: #94a3b8;
+}
+
+.theme-dark .hero-dropdown {
+  background: #1f2937;
+  border-color: #374151;
+}
+
+.theme-dark .hero-dropdown-item {
+  color: white;
+}
+
+.theme-dark .hero-dropdown-item:hover {
+  background: #374151;
+}
+
+.theme-dark .hero-secondary-btn {
+  border-color: #4b5563;
+  color: #e5e7eb;
+}
+
+.theme-dark .hero-secondary-btn:hover {
+  border-color: #fb923c;
+  color: #fb923c;
+}
