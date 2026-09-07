@@ -368,6 +368,11 @@ router.get("/home-recommended-books", async (req, res) => {
         },
       },
 
+      {
+        $sort: {
+          createdAt: -1,
+        },
+      },
       // Get reviews
       {
         $lookup: {
@@ -710,7 +715,7 @@ router.get("/get-single-book/:id", async (req, res) => {
 //Route for categorized book
 router.get("/get_category", async (req, res) => {
   try {
-    const category = await Category.find();
+    const category = await Category.find().sort({ createdAt: -1 });
     res.json(category);
   } catch (err) {
     console.error(err);
