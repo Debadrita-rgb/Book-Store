@@ -231,7 +231,9 @@ Users can:
 * Apply coupons
 * Remove coupons
 * Automatically calculate discounted totals
-
+  
+### Screenshot
+![Coupon](./screenshots/coupon.png)
 ---
 
 # 📍 Address Management
@@ -246,6 +248,8 @@ Features include:
 * Set default address
 * Select delivery address during checkout
 
+### Screenshot
+![Address](./screenshots/address.png)
 ---
 
 # 💳 Secure Payment
@@ -507,6 +511,10 @@ Companies can participate in the order fulfillment process by managing orders as
 
 The system uses company-specific identification to ensure that companies only access relevant order information.
 
+### Screenshot
+
+![Company Dashboard](./screenshots/company-dashboard.png)
+
 ---
 
 # 🚚 Transporter Management
@@ -726,7 +734,7 @@ Book-Store/
 ## 1. Clone Repository
 
 ```bash
-git clone https://github.com/your-username/book-store.git
+git clone https://github.com/Debadrita-rgb/book-store.git
 
 cd book-store
 ```
@@ -808,76 +816,6 @@ http://localhost:5173
 | GET    | `/transporter/todays-deliveries` | Get Today's Deliveries   |
 | POST   | `/admin/add-transporter`         | Add Transporter          |
 | GET    | `/admin/get-all-transporters`    | Get Transporters         |
-
----
-
-# 📸 Screenshots
-
-## 🏠 Home Page
-
-![Home Page](./screenshots/home.png)
-
----
-
-## 📚 Books Page
-
-![Books Page](./screenshots/books.png)
-
----
-
-## 📖 Book Details
-
-![Book Details](./screenshots/book-details.png)
-
----
-
-## ❤️ Wishlist
-
-![Wishlist](./screenshots/wishlist.png)
-
----
-
-## 🛒 Shopping Cart
-
-![Cart](./screenshots/cart.png)
-
----
-
-## 💳 Checkout
-
-![Checkout](./screenshots/checkout.png)
-
----
-
-## 📦 Orders
-
-![Orders](./screenshots/orders.png)
-
----
-
-## 🚚 Order Tracking
-
-![Order Tracking](./screenshots/order-tracking.png)
-
----
-
-## 👨‍💼 Admin Dashboard
-
-![Admin Dashboard](./screenshots/admin-dashboard.png)
-
----
-
-## 🏢 Company Dashboard
-
-![Company Dashboard](./screenshots/company-dashboard.png)
-
----
-
-## 🚚 Transporter Dashboard
-
-![Transporter Dashboard](./screenshots/transporter-dashboard.png)
-
----
 
 # 🧩 Key Modules
 
