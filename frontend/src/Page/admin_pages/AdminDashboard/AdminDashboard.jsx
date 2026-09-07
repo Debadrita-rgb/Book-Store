@@ -1,7 +1,6 @@
 import { MdEdit } from "react-icons/md";
 import React, { useState, useEffect, useMemo } from "react";
-import { FiBriefcase, FiClock, FiMapPin } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import BASE_URL from "../../../../config";
 import {
@@ -15,6 +14,7 @@ import {
   Title,
   Tooltip,
   Legend,
+  Filler,
 } from "chart.js";
 
 import { Line } from "react-chartjs-2";
@@ -29,6 +29,7 @@ ChartJS.register(
   Title,
   Tooltip,
   Legend,
+  Filler,
 );
 
 import {
@@ -42,12 +43,7 @@ import {
 } from "react-icons/fa";
 
 const AdminDashboard = () => {
-  const [activeTab, setActiveTab] = useState("Daily");
-  const [selectedDate, setSelectedDate] = useState(new Date());
-  const [selectedMonth, setSelectedMonth] = useState("");
-  const [dateRange, setDateRange] = useState([null, null]);
-
-  const [startDate, endDate] = dateRange;
+const navigate = useNavigate();
   const [dashboardData, setDashboardData] = useState({
     stats: {
       totalUsers: 0,
@@ -254,16 +250,16 @@ const activeRevenueData =
       {/* Revenue Chart */}
       <div className="dashboard-panel rounded-2xl p-6">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-5">
-          <h2 className="text-xl font-bold dashboard-text">
-            Revenue Overview
-          </h2>
+          <h2 className="text-xl font-bold dashboard-text">Revenue Overview</h2>
 
           <div className="flex items-center gap-2 flex-wrap">
             <button
               type="button"
               onClick={() => setRevenueView("monthly")}
               className={`px-3 py-2 rounded-lg text-sm font-medium transition dashboard-filter-button ${
-                revenueView === "monthly" ? "dashboard-filter-button-active" : ""
+                revenueView === "monthly"
+                  ? "dashboard-filter-button-active"
+                  : ""
               }`}
             >
               Monthly
@@ -348,7 +344,9 @@ const activeRevenueData =
       {/* Order Status */}
       {dashboardData?.orderStatusData?.length > 0 && (
         <div className="dashboard-panel rounded-2xl p-6">
-          <h2 className="text-xl font-bold mb-5 dashboard-text">Order Status Overview</h2>
+          <h2 className="text-xl font-bold mb-5 dashboard-text">
+            Order Status Overview
+          </h2>
 
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             {dashboardData.orderStatusData.map((item) => (
@@ -396,11 +394,10 @@ const activeRevenueData =
                 {dashboardData.recentOrders.map((order) => (
                   <tr
                     key={order._id}
+                    onClick={() => navigate(`/order/${order._id}`)}
                     className="border-b hover:bg-gray-200  transition"
                   >
-                    <Link to={`/admin/view-order-details/${order._id}`}>
-                      <td className="py-4">{order.orderNumber}</td>
-                    </Link>
+                    <td className="py-4">{order.orderNumber}</td>
                     <td>{order.orderStatus}</td>
                     <td>{order.paymentStatus}</td>
                     <td className="font-semibold">₹{order.totalAmount}</td>
@@ -419,7 +416,9 @@ const activeRevenueData =
           {/* Low Stock */}
           {dashboardData?.lowStockBooks?.length > 0 && (
             <div className="dashboard-panel rounded-2xl p-6">
-              <h2 className="text-xl font-bold mb-5 dashboard-text">⚠️ Low Stock Books</h2>
+              <h2 className="text-xl font-bold mb-5 dashboard-text">
+                ⚠️ Low Stock Books
+              </h2>
 
               {dashboardData.lowStockBooks.map((item) => (
                 <div
@@ -448,7 +447,9 @@ const activeRevenueData =
           {/* Top Selling */}
           {dashboardData?.topSellingBooks?.length > 0 && (
             <div className="dashboard-panel rounded-2xl p-6">
-              <h2 className="text-xl font-bold mb-5 dashboard-text">📚 Top Selling Books</h2>
+              <h2 className="text-xl font-bold mb-5 dashboard-text">
+                📚 Top Selling Books
+              </h2>
 
               {dashboardData.topSellingBooks.map((book, index) => (
                 <div
@@ -484,9 +485,7 @@ const activeRevenueData =
 
       {/* Quick Actions */}
       <div className="dashboard-panel rounded-2xl p-6">
-        <h2 className="text-xl font-bold mb-5 dashboard-text">
-          Quick Actions
-        </h2>
+        <h2 className="text-xl font-bold mb-5 dashboard-text">Quick Actions</h2>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <Link to="/admin/addBook">

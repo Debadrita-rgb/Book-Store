@@ -10,9 +10,9 @@ const BookListPage = () => {
   const [allBooks, setAllBooks] = useState([]);
   const [filters, setFilters] = useState({ category: "", price: 25300 });
   const [viewMode, setViewMode] = useState("grid");
-const [currentPage, setCurrentPage] = useState(1);
-const [totalPages, setTotalPages] = useState(1);
-const limit = 12;
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const limit = 12;
 
   const fetchBooks = async () => {
     try {
@@ -28,7 +28,7 @@ const limit = 12;
       });
 
       setAllBooks(response.data.books);
-    setTotalPages(response.data.pagination.totalPages);
+      setTotalPages(response.data.pagination.totalPages);
     } catch (err) {
       console.error("Error fetching books:", err);
     }
