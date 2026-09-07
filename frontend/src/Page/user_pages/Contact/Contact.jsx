@@ -19,7 +19,7 @@ const Contact = () => {
     email: "",
     subject: "",
     message: "",
-    status: "Contact"
+    status: "Contact",
   });
 
   const handleChange = (e) => {
@@ -98,6 +98,11 @@ const Contact = () => {
         body: JSON.stringify(formData),
       });
 
+      const contentType = res.headers.get("content-type") || "";
+      if (!contentType.includes("application/json")) {
+        throw new Error(`Unexpected server response (${res.status})`);
+      }
+
       const result = await res.json();
 
       if (res.ok) {
@@ -106,7 +111,7 @@ const Contact = () => {
         setUserCaptchaInput("");
         generateCaptcha();
       } else {
-        toast.error(result.error || "Failed to send message");
+        toast.error(result.message || result.error || "Failed to send message");
       }
     } catch (err) {
       toast.error("Server error");
@@ -116,7 +121,7 @@ const Contact = () => {
 
   return (
     <div className="section-bg">
-      {" "}
+      
       {/* PAGE INTRO */}
       <section className="pt-16 pb-12">
         <div className="max-w-5xl mx-auto px-6 text-center">
@@ -142,13 +147,13 @@ const Contact = () => {
             {/* CONTACT INFO */}
             <div className="lg:col-span-1">
               <div className="section-container section-glow rounded-3xl p-8 h-full about-dark">
-                {" "}
+                
                 <div className="w-14 h-14 rounded-2xl bg-orange-500 flex items-center justify-center text-xl">
                   <FaHeadset />
                 </div>
                 <h2 className="mt-6 text-2xl font-bold">Contact Information</h2>
                 <p className="mt-3 text-gray-300 leading-7">
-                  {" "}
+                  
                   Reach out to us and we'll get back to you as soon as possible.
                 </p>
                 {/* Email */}
@@ -198,15 +203,15 @@ const Contact = () => {
             {/* CONTACT FORM */}
             <div className="lg:col-span-2">
               <div className="section-container section-glow rounded-3xl p-6 md:p-10">
-                {" "}
+                
                 <div className="mb-8">
                   <p className="section-subtitle font-semibold">
-                    {" "}
+                    
                     Send us a message
                   </p>
 
                   <h2 className="section-title text-3xl font-bold">
-                    {" "}
+                    
                     Let's talk about your question
                   </h2>
 
@@ -340,7 +345,7 @@ const Contact = () => {
       </section>
       {/* HELP SECTION */}
       <section className="py-20 section-bg-alt">
-        {" "}
+        
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <span className="section-subtitle font-semibold">Need Help?</span>
@@ -356,16 +361,16 @@ const Contact = () => {
 
           <div className="grid md:grid-cols-3 gap-6">
             <div className="card-theme rounded-2xl p-7 card-hover">
-              {" "}
+              
               <div className="about-icon">
                 <FaBookOpen />
               </div>
               <h3 className="section-title mt-5 font-bold text-lg">
-                {" "}
+                
                 Where can I find my orders?
               </h3>
               <p className="section-text mt-3 leading-7 text-sm">
-                {" "}
+                
                 Login to your account and open the "Your Orders" section to view
                 your order history and track your packages.
               </p>
@@ -377,7 +382,7 @@ const Contact = () => {
               </div>
 
               <h3 className="section-title mt-5 font-bold text-lg">
-                {" "}
+                
                 How can I track my order?
               </h3>
 
@@ -388,12 +393,12 @@ const Contact = () => {
             </div>
 
             <div className="card-theme rounded-2xl p-7 card-hover">
-              {" "}
+              
               <div className="about-icon">
                 <FaHeadset />
               </div>
               <h3 className="section-title mt-5 font-bold text-lg">
-                {" "}
+                
                 Still need help?
               </h3>
               <p className="mt-3 text-gray-500 leading-7 text-sm">

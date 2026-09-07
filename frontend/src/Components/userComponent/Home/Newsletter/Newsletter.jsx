@@ -29,6 +29,11 @@ const Newsletter = () => {
         body: JSON.stringify(formData),
       });
 
+      const contentType = res.headers.get("content-type") || "";
+      if (!contentType.includes("application/json")) {
+        throw new Error(`Unexpected server response (${res.status})`);
+      }
+
       const result = await res.json();
 
       if (res.ok) {
