@@ -160,32 +160,32 @@ const HeroSection = () => {
 
             <div className="relative grid grid-cols-2 gap-5">
               <img
-                src="https:images.unsplash.com/photo-1544947950-fa07a98d237f?w=500"
+                src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=500"
                 alt="Book"
                 className="w-40 h-56 md:w-48 md:h-64 object-cover rounded-xl shadow-2xl rotate-[-6deg]"
               />
 
               <img
-                src="https:images.unsplash.com/photo-1589998059171-988d887df646?w=500"
+                src="https://images.unsplash.com/photo-1589998059171-988d887df646?w=500"
                 alt="Book"
                 className="w-40 h-56 md:w-48 md:h-64 object-cover rounded-xl shadow-2xl rotate-[6deg] mt-8"
               />
 
               <img
-                src="https:images.unsplash.com/photo-1512820790803-83ca734da794?w=500"
+                src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=500"
                 alt="Book"
                 className="w-40 h-56 md:w-48 md:h-64 object-cover rounded-xl shadow-2xl rotate-[5deg]"
               />
 
               <img
-                src="https:images.unsplash.com/photo-1511108690759-009324a90311?w=500"
+                src="https://images.unsplash.com/photo-1511108690759-009324a90311?w=500"
                 alt="Book"
                 className="w-40 h-56 md:w-48 md:h-64 object-cover rounded-xl shadow-2xl rotate-[-5deg] mt-8"
               />
             </div>
           </div>
         </div>
-        </div>
+      </div>
     </section>
   );
 };
