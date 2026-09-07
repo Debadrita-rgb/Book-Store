@@ -59,7 +59,7 @@ const Order = require("../Models/Order");
 const Review = require("../Models/Review");
 const Tracking = require("../Models/Tracking");
 const Contact = require("../Models/Contact");
-const Profile = require("../Models/Profile")
+const Profile = require("../Models/Profile");
 
 const { jwtAuthMiddleware, generateToken } = require("../middleware/jwt");
 
@@ -617,17 +617,17 @@ router.get("/get_books", async (req, res) => {
       query.price = { $lte: Number(maxPrice) };
     }
 
-     const currentPage = Number(page);
-     const perPage = Number(limit);
+    const currentPage = Number(page);
+    const perPage = Number(limit);
 
-const totalBooks = await Book.countDocuments(query);
+    const totalBooks = await Book.countDocuments(query);
 
-const books = await Book.find(query)
-  .sort({ createdAt: -1 })
-  .skip((currentPage - 1) * perPage)
-  .limit(perPage);
+    const books = await Book.find(query)
+      .sort({ createdAt: -1 })
+      .skip((currentPage - 1) * perPage)
+      .limit(perPage);
 
-      const bookIds = books.map((book) => book._id);
+    const bookIds = books.map((book) => book._id);
 
     const quantityDocs = await BookQuantityCounting.find({
       bookId: { $in: bookIds },
@@ -647,15 +647,15 @@ const books = await Book.find(query)
       available_quantity: quantityMap.get(book._id.toString()) || 0,
     }));
 
- res.json({
-   books: booksWithQuantity,
-   pagination: {
-     currentPage,
-     totalPages: Math.ceil(totalBooks / perPage),
-     totalBooks,
-     limit: perPage,
-   },
- });
+    res.json({
+      books: booksWithQuantity,
+      pagination: {
+        currentPage,
+        totalPages: Math.ceil(totalBooks / perPage),
+        totalBooks,
+        limit: perPage,
+      },
+    });
   } catch (err) {
     console.error(err);
     res.status(500).send("Server Error");
@@ -1086,7 +1086,7 @@ router.post("/add-to-cart", jwtAuthMiddleware, async (req, res) => {
       userId,
       bookId,
       status: "active",
-    }); 
+    });
 
     if (existingCart) {
       existingCart.quantity += 1;
@@ -1864,7 +1864,6 @@ router.get("/my-orders", jwtAuthMiddleware, async (req, res) => {
       data: orders,
       years,
     });
-    
   } catch (err) {
     console.error(err);
 
@@ -1875,7 +1874,10 @@ router.get("/my-orders", jwtAuthMiddleware, async (req, res) => {
   }
 });
 
-router.get("/get-single-order/:orderId", jwtAuthMiddleware, async (req, res) => {
+router.get(
+  "/get-single-order/:orderId",
+  jwtAuthMiddleware,
+  async (req, res) => {
     try {
       const userId = req.user.id;
       const orderId = req.params.orderId;
@@ -1921,7 +1923,10 @@ router.get("/get-single-order/:orderId", jwtAuthMiddleware, async (req, res) => 
   },
 );
 
-router.post("/submit-review", jwtAuthMiddleware, upload.array("images"),
+router.post(
+  "/submit-review",
+  jwtAuthMiddleware,
+  upload.array("images"),
   async (req, res) => {
     try {
       const userId = req.user.id;
