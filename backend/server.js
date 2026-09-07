@@ -22,27 +22,40 @@ app.use(express.urlencoded({ extended: true }));
 // Serve uploaded files
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
-const allowedOrigins = new Set([
+const allowedOrigins = [
   "http://localhost:5173",
   "https://book-store-frontend-2pz4.onrender.com",
-  ...(process.env.FRONTEND_URL ? [process.env.FRONTEND_URL] : []),
-]);
+];
 
-const corsOptions = {
-  origin: (origin, callback) => {
-    const normalizedOrigin = origin?.replace(/\/$/, "");
+app.use(
+  cors({
+    origin(origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+      callback(new Error("Not allowed by CORS"));
+    },
+    credentials: true,
+  }),
+);
 
-    if (!origin || allowedOrigins.has(normalizedOrigin)) {
-      return callback(null, true);
-    }
+app.options("*", cors());
 
-    return callback(new Error("Origin is not allowed by CORS"));
-  },
-  credentials: true,
-};
+// const corsOptions = {
+//   origin: (origin, callback) => {
+//     const normalizedOrigin = origin?.replace(/\/$/, "");
 
-app.use(cors(corsOptions));
-app.options(/.*/, cors(corsOptions));
+//     if (!origin || allowedOrigins.has(normalizedOrigin)) {
+//       return callback(null, true);
+//     }
+
+//     return callback(new Error("Origin is not allowed by CORS"));
+//   },
+//   credentials: true,
+// };
+
+// app.use(cors(corsOptions));
+// app.options(/.*/, cors(corsOptions));
 
 
 app.use(express.json());
